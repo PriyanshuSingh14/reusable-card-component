@@ -1,10 +1,13 @@
 import React from "react";
 import ReusableCard from "./components/ReusableCard";
+import { Box, Grid } from "@mui/material";
+
 
 function App() {
   const items = [
     {
-      imageUrl: 'monitor.webp',
+      imageUrl: "monitor.webp",
+      // imageUrl:monitor,
       description: "A monitor is an electronic output device used to display information being entered and processed on a computer.",
       key: Math.random(),
     },
@@ -24,7 +27,7 @@ function App() {
       key: Math.random(),
     },
     {
-      imageUrl: 'ups.webp',
+      imageUrl: 'ups.jpeg',
       description: "An uninterruptible power supply (UPS) is a device that allows a computer to keep running for at least a short time when incoming power is interrupted.",
       key: Math.random(),
     }
@@ -32,8 +35,14 @@ function App() {
 
   return (
     <React.Fragment>
-      <h1>Parts of Computer</h1>
-      <ReusableCard items={items} />
+      <Box flexGrow={1}>
+        <h1>Parts of Computer</h1>
+        <Grid container spacing={2}>
+          <Grid item xs={12} sm={6} md={4} lg={3}>
+            <ReusableCard items={items} />
+          </Grid>
+        </Grid>
+      </Box>
     </React.Fragment>
   );
 }
